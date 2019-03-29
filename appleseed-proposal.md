@@ -4,7 +4,7 @@
 
 Gray Olson
 
-- Email: [gray@grayolson.com.com](gray@grayolson.com)
+- Email: [gray@grayolson.com](gray@grayolson.com)
 - Discord: *Fusha#8156*
 - GitHub: [termhn](https://github.com/termhn)
 
@@ -38,117 +38,42 @@ In order to do this, a main piece of the project will be to provide a unified vi
 
 ## Light Path Recording Details
 
-As described in the original project idea description, the first step will be verifying that the current implementation is correct and annotating it with physical properties. Concurrently, I'll be interacting with appleseed and potentially other community members to determine which other quantities would be useful to have the option of recording.
+As described in the original project idea description, the first step will be verifying that the current implementation is correct and annotating it with physical properties. Concurrently, I'll be interacting with appleseed and potentially other community members to determine which other quantities would be useful to have the option of recording. These should also be configurable in the renderer, as sometimes we might not want to record all of them.
 
-### Tests / Optimization
+## Viewport Details
 
-- Test if the rendered images are correct
-- Observe how pixels are sampled
-- Reduce memory use if possible
-- Port the implementation on multiple threads if originally implemented on a unique thread
+## Light Path Visualization Details
 
 ## Project Schedule
 
-I will have vacations from May 25 to August 31, which leaves a bit more time than planned. I will be able to work completly on this project during this period. I will also be available before May 25 because most of my units would have been finished by then. Here is an estimation of the project schedule:
+I will be on summer break from May 1st to August 22nd. I will be out of town from May 1st to May 12th, but will have my computer with me and will still have a significant amount of time to work on things during that time. In addition, there is a possibility of me doing part time work for a couple of weeks in June, however I don't expect this to interfere with my GSoC participation. In addition, I might go out of town for a week or two in July, but I will have my computer with me and still be able to work full time on GSoC while I am out of town.
 
 ### Community Bonding
 
-#### Until May 14
+#### Until May 6
 
-- Actively contribute
+- Actively contribute and push my current PRs through to merging
+
+#### Until May 13
+
+- Get more familiar with Qt
 - Get familiar with appleseed's render pipeline
-- Get familiar with blenderseed
 
-### Adaptive Sampling
+#### Until May 27
 
-#### Week of May 14
+- Begin to collect feedback on which additional quantities would be helpful to collect 
 
-- List all methods that can be implemented directly into appleseed and the one that requires a fair amount of refactoring
-- Compare methods between each other
-- End of the week, along with maintainers: **Decide which solution will be implemented**
+## Phase 1
 
-#### Week of May 21
+## Phase 2
 
-- Get familiar with the chosen method 
-- Outline the algorithm
-- Produce diagrams of what the final code structure would be
-- Propose an interface for configuring the sampler
-- Discuss of the structure with maintainers
-
-#### Week of May 28
-
-- Naive implementation of the algorithm
-- Refactor appleseed if needed to fit the new sampler
-- Create some test scenes
-- Use diagnostic AOVs to observe the results
-
-#### Week of June 4
-
-- Continuing previous week tasks
-
-#### Week of June 11: End of phase 1
-
-- Evaluation of the Phase 1
-- Preparation for Phase 2
-- Work on the final report
-
-#### Week of June 18
-
-- Test the naive implementation
-- Fix issues (there will be some :smile:)
-- Improve previously create diagrams if needed
-- Test the algorithm on animations
-
-#### Week of June 25
-
-- Optimize the algorithm
-- Optimize memory management
-
-#### Week of July 2
-
-- Better integration of the sampler inside source code
-- Add the new sampler in appleseed.studio
-
-#### Week of July 9: End of phase 2
-
-- Evaluation of Phase 2
-- Preparation for Phase 3
-- Work on the final report
-- Compare results with the original adaptive sampler
- 
-#### Week of July 16
-
-- Test again with the same scenes as before
-- Remove the original adaptive sampler
-- Final fixes, tests and documentations
-
-### Resumable Renders
-
-#### Week of July 23
-
-- Find how to interrupt renders
-- List things that need to be saved to resume the render
-- Implement a current rendering-state saver
-- Implement interruption and use the previous file saver
-
-#### Week of July 30
-
-- Allow to restart a render from appleseed.cli
-
-#### Week of August 6
+## Wrap-up
 
 - Final Evaluation
 - Final report modifications
 
 ## Bio
 
-I am 21, studying *Compute Science and Image Science* at the University of Strasbourg, France, currently in the first year of a Master's Degree. Computer graphics and especially rendering fascinate me, I am doing my best for being ready to enter the industry. I have experience with NPR and real-time rendering, and I am learning about physically based renderers. I have professional experience with Python, which I acquired by working in 2 different animation studio (one in Luxembourg named *La Fabrique d'Images* and one in Paris named *Ellipsanime*). Developing tools for artists was my principal task. Thanks to school and personal projects, I have advanced knowledge of C++ and C. Also, I am starting to get comfortable with Scientific Papers as I am using them to implement school projects.
-
 ## References
 
-- [A Hierarchical Automatic Stopping Condition for Monte Carlo Global Illumination](https://jo.dreggn.org/home/2009_stopping.pdf)
-
 ## Links
-
-- [Adaptive Sampling by Yining Karl Li](https://blog.yiningkarlli.com/2015/03/adaptive-sampling.html)
-- [Final Project Report by Benedikt Bitterli](http://noobody.org/is-report/medium.html)
