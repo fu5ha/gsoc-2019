@@ -176,11 +176,20 @@ In addition, I am a member of the Amethyst Organization, working on the renderin
 
 I have some experience with offline rendering and have written my own small toy path tracer in Rust based on Peter Shirley's Ray Tracing in one Weekend (https://github.com/termhn/rayn). I have also read most of `pbrt` and at one point intended to rewrite `rayn` based on `pbrt`, though that project eventually fell through as I continued working on realtime graphics related projects.
 
+I’ve found visual effects super fascinating my whole life, and have done a fair amount of 3d, vfx, and video editing work using various tools. For example, here’s a bit of the work I’ve done:
+
+https://imgur.com/a/tKcv1JL
+https://imgur.com/YILloRb 
+https://vimeo.com/161781315
+https://vimeo.com/161781315
+
 I am not as experienced in C/C++ as I am with Rust, but I do have a fair amount of experience with it and I think that much of my Rust knowledge transfers fairly well. I am also excited to get experience working on a large C++ codebase as it is something that I lack knowledge about but would be excellent for future opportunities. In the time that I've been working on appleseed so far, I've already felt myself become acclimated and improve quite a bit.
 
 I would say my proficiency with Git and GitHub are quite good, and I have quite a bit of experience with following coding guidelines that are not mine; that said, in Rust, which is my primary language, we have an awesome and very standardized tool called `rustfmt` which automatically formats code according to project guidelines. So, it might take a bit of getting used to before I stop making small formatting errors, but overall I am proficient in this way.
 
 As far as code reviews, I've had my code reviewed on all the open source projects I've contributed to in the past and have almost always had good experiences with it. I've also reviewed others' code on those projects. Code review just feels natural to me at this point, perhaps because of the somewhat nonstandard way that I've learned and participated in programming throughout my life.
+
+I’m certainly interested in continuing to contribute to appleseed in the future, hopefully directly to the renderer itself--perhaps to do with GPU accelerated rendering--and to use it in my own work in the future. I would be interested in participating in GSoC again next year, or mentoring depending on how things go.
 
 Finally, I would just like to say that I really, really appreciate the way that the appleseed dev-team, Discord, and community in general is managed; you've managed to strike an awesome balance of friendliness and familiarity with professionalism. It's made me feel very welcome and encouraged, and I am very excited to potentially have the opportunity to work with everyone over the summer.
 
