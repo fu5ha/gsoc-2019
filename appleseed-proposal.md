@@ -1,5 +1,3 @@
-See rendered version: https://github.com/termhn/gsoc-2019/blob/master/appleseed-proposal.md
-
 # [Light Paths Visualization](https://github.com/appleseedhq/appleseed/wiki/List-of-Project-Ideas-for-GSoC-2019#project-10-improve-light-paths-visualization) and Viewport Unification Proposal
 
 ## Contact Information
