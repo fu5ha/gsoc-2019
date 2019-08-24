@@ -39,7 +39,7 @@ In addition, on the same vein of improving graphical fidelity, I implemented [we
 
 Around this time, I hit my first and only major roadblock when I had a family medical emergency. My dad had a very bad heart attack and was in intensive care for about a week. I initially didn't expect this to affect my coding ability much, but the mental strain it put on my had an impact for several weeks afterwards, and I ended up being much less productive for the next three weeks or so.
 
-During this time, I mostly worked on fixing bugs and improving user-experience related to all the things I had implmented so far. This included fixing unintuitive behavior, crashes, and more, and implmeenting the existing 'soloing' or light path selection feature that was already present by using transparency instead of just showing only one light path at a time. All this work was collected into [this PR](https://github.com/appleseedhq/appleseed/pull/2661).
+During this time, I mostly worked on [fixing bugs and improving user-experience](https://github.com/appleseedhq/appleseed/pull/2661) related to all the things I had implmented so far. This included fixing unintuitive behavior, crashes, and more, and implmeenting the existing 'soloing' or light path selection feature that was already present by using transparency instead of just showing only one light path at a time.
 
 ### Light Path Expression Filtering
 
