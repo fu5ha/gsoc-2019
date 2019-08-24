@@ -6,27 +6,56 @@ In order to do this, a central goal of the project was to provide a unified view
 
 For more detail on what the plan was going in, you can see my [original proposal for the project](https://github.com/termhn/gsoc-2019/blob/master/appleseed-proposal.md).
 
+## A Summary in Pictures
+
+They say a picture is worth a thousand words, and in this case I think that is quite true. Here is a summary of all the user-facing/visible changes made to appleseed.studio.
+
+![appleseed.studio screenshot 1](https://cdn.discordapp.com/attachments/575767129819840534/613558171293843456/snip1.PNG)
+![appleseed.studio screenshot 2](https://cdn.discordapp.com/attachments/575767129819840534/613558173642522635/snip2.PNG)
+
+Now, let's dig into all the details!
+
 ## The Code
 
-I ended up completing much of what I set out to do. The first thing I did, partially before the actual GSoC coding period started, but I would consider it to be the real first step of my project, was to rewrite the old light path drawing code, which previously used Legacy OpenGL. I did that in [this PR](https://github.com/appleseedhq/appleseed/pull/2496) which was supported by [another PR](https://github.com/appleseedhq/appleseed/pull/2509) in which I upgraded the appleseed.studio Qt version from Qt 4 to Qt 5. This was necessary for the modern style of OpenGL (3.3) to work properly.
+### Review of existing implementation
 
-Next, when the official coding period began, I started by reviewing the actual light path recording code for correctness and to annotate the physical quantities that were being stored. I did this in [this PR](https://github.com/appleseedhq/appleseed/pull/2629), which also fixed a bug with the light path recording where when a ray was reflected off an emitting object, the emitted light was not properly added to the ray.
+I ended up completing much of what I set out to do. The first thing I did, partially before the actual GSoC coding period started, but I would consider it to be the real first step of my project, was to [rewrite the old light path drawing code](https://github.com/appleseedhq/appleseed/pull/2496), which previously used Legacy OpenGL. That work was supported by [upgrading appleseed.studio Qt version from Qt 4 to Qt 5](https://github.com/appleseedhq/appleseed/pull/2509). This was necessary for the modern style of OpenGL (3.3) to work properly.
+
+Next, when the official coding period began, I started by [reviewing the actual light path recording code](https://github.com/appleseedhq/appleseed/pull/2629) for correctness and to annotate the physical quantities that were being stored. This work fixed a bug with the light path recording where when a ray was reflected off an emitting object, the emitted light was not properly added to the ray.
+
+### Unified Viewport
 
 After verifying the base was correct, I started the first major piece of the project, the 'unified viewport'. The rest of the code I wrote for the project has not yet been merged, but this is mostly because appleseed has been going through a major release cycle during the GSoC coding period, and so code reviews and merging has been focused on bug fixes before the release, while my code is set to land after this release happens.
 
 I submitted the initial version of the unified viewport in [this PR](https://github.com/appleseedhq/appleseed/pull/2648), which allowed switching between the final render and OpenGL scene view at will, while retaining an overlay of the displayed light paths on top of either.
 
+### Light Path Rendering
+
 Next, I moved on to improve the fidelity of the actual rendering of the paths. Before this, they were simply drawn as line primitives using GL_LINES. This is fine for an initial implementation, but it provides very little range of options for changing how the lines look. I ended up developing a custom line drawing algorithm for our purposes, which at its simplest level creates billboarded triangle strips such that each 'line' in a light path is one rectangle made up of two triangles. It provides antialiasing without needing MSAA and offers the flexibility of changing the thickness of each line segment.
 
 In addition, on the same vein of improving graphical fidelity, I implemented [weighted, blended order-independent transparency](http://jcgt.org/published/0002/02/09/paper.pdf) to allow paths to have variable transparency and still be drawn in a consistent and representational manner regardless of viewing angle. I landed both this and the new line drawing in [this PR](https://github.com/appleseedhq/appleseed/pull/2660).
 
+### A Setback
+
 Around this time, I hit my first and only major roadblock when I had a family medical emergency. My dad had a very bad heart attack and was in intensive care for about a week. I initially didn't expect this to affect my coding ability much, but the mental strain it put on my had an impact for several weeks afterwards, and I ended up being much less productive for the next three weeks or so.
 
-During this time, I mostly worked on fixing bugs and improving user-experience related to all the things I had implmented so far. This included fixing unintuitive behavior, crashes, and more, and implmeenting the existing 'soloing' or light path selection feature that was already present by using transparency instead of just showing only one light path at a time. All this work was collected into [this PR]. https://github.com/appleseedhq/appleseed/pull/2661
+During this time, I mostly worked on fixing bugs and improving user-experience related to all the things I had implmented so far. This included fixing unintuitive behavior, crashes, and more, and implmeenting the existing 'soloing' or light path selection feature that was already present by using transparency instead of just showing only one light path at a time. All this work was collected into [this PR](https://github.com/appleseedhq/appleseed/pull/2661).
 
-Finally, as my mental state improved and GSoC was beginning to wrap up, I began work in earnest on the filtering part of my initial proposal. Through talks with my mentors and other appleseed community members, it was determined that implementing a filter based on [light path expressions](https://www.sidefx.com/docs/houdini/render/lpe.html) which are now a fairly industry-standard method of selecting certain light paths which should contribute to an AOV.
+### Light Path Expression Filtering
 
-OSL, which is already used elsewhere in the appleseed codebase for multiple things, includes an implementation of a Light Path Expression parser and some functions for using them in computing AOVs. I adapted this code to be used in the job of filtering selected light paths in appleseed's light path recording and display, and presented this feature in [this PR](https://github.com/appleseedhq/appleseed/pull/2682).
+Finally, as my mental state improved and GSoC was beginning to wrap up, I began work in earnest on the [filtering part of my initial proposal](https://github.com/appleseedhq/appleseed/pull/2682). Through talks with my mentors and other appleseed community members, it was determined that implementing a filter based on [light path expressions](https://www.sidefx.com/docs/houdini/render/lpe.html) which are now a fairly industry-standard method of selecting certain light paths which should contribute to an AOV.
+
+OSL, which is already used elsewhere in the appleseed codebase for multiple things, includes an implementation of a Light Path Expression parser and some functions for using them in computing AOVs. I adapted this code to be used in the job of filtering selected light paths in appleseed's light path recording and display.
+
+### Full list of PRs
+
+Here is a full list of the code that I've submitted
+1. https://github.com/appleseedhq/appleseed/pull/2496
+2. https://github.com/appleseedhq/appleseed/pull/2509
+3. https://github.com/appleseedhq/appleseed/pull/2648
+4. https://github.com/appleseedhq/appleseed/pull/2660
+5. https://github.com/appleseedhq/appleseed/pull/2661
+6. https://github.com/appleseedhq/appleseed/pull/2682
 
 ## Conclusions
 
